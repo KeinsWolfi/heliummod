@@ -16,5 +16,8 @@ public class ConnectMixin {
     @Inject(method = "connect(Lnet/minecraft/client/MinecraftClient;Lnet/minecraft/client/network/ServerAddress;Lnet/minecraft/client/network/ServerInfo;)V", at = @At("HEAD"))
     private void tryConnectEvent(MinecraftClient client, ServerAddress address, ServerInfo info, CallbackInfo ci) {
         AutoReconnect.lastConnectedServer = new ObjectObjectImmutablePair<>(address, info);
+        if(AutoReconnect.autoEnable) {
+            AutoReconnect.autoReconnect = true;
+        }
     }
 }

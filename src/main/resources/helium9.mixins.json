@@ -6,7 +6,8 @@
 		"TickMixin",
 		"Menu",
 		"DisconnectMixin",
-		"ConnectMixin"
+		"ConnectMixin",
+		"InGameHudMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
