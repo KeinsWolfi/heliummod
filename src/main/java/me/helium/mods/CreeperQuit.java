@@ -36,13 +36,12 @@ public class CreeperQuit {
             }
             if(!entities.isEmpty()) creeperNear = true;
             else creeperNear = false;
-            if(timer >= 5) {
+            if(timer >= 20) {
                 timer = 0;
                 if(noAutoReconnect){
                     AutoReconnect.autoReconnect = false;
                 }
-
-                Helium9.mc.getNetworkHandler().onDisconnect(new DisconnectS2CPacket(Text.of("Creeper Exploding!!")));
+                Helium9.mc.player.networkHandler.onDisconnect(new DisconnectS2CPacket(Text.of("Creeper Exploding!!")));
             }
         }
     }
