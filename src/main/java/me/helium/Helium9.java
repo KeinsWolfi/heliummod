@@ -13,6 +13,10 @@ public class Helium9 implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("helium9");
 	public static final MinecraftClient mc = MinecraftClient.getInstance();
 
+	public static final String MOD_ID = "helium9";
+	public static final String MOD_NAME = "HeliumMod";
+	public static final String MOD_VERSION = "0.1.0";
+
 
 	@Override
 	public void onInitialize() {

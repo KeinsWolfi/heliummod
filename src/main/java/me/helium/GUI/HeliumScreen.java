@@ -2,8 +2,11 @@ package me.helium.GUI;
 
 import me.helium.mods.AutoReconnect;
 import me.helium.mods.CreeperQuit;
+import me.helium.util.gui.ChatFormat;
+import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.text.Text;
 
@@ -21,11 +24,11 @@ public class HeliumScreen extends Screen {
     }
 
     Text creeperQuitText() {
-            return CreeperQuit.creeperQuit ? Text.of("Creeper Quit: §aOn") : Text.of("Creeper Quit: §cOff");
+            return CreeperQuit.creeperQuit ? Text.of("Creeper Quit: " + ChatFormat.GREEN + "On") : Text.of("Creeper Quit: " + ChatFormat.RED + "Off");
     }
 
     Text autoReconnectText() {
-        return AutoReconnect.autoReconnect ? Text.of("Auto Reconnect: §aOn") : Text.of("Auto Reconnect: §cOff");
+        return AutoReconnect.autoReconnect ? Text.of("Auto Reconnect: " + ChatFormat.GREEN + "On") : Text.of("Auto Reconnect: " + ChatFormat.RED + "Off");
     }
 
     protected void init() {
