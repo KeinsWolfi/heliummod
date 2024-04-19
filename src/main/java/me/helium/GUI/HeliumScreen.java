@@ -34,6 +34,7 @@ public class HeliumScreen extends Screen {
             CreeperQuit.creeperQuit = !CreeperQuit.creeperQuit;
             button.setMessage(creeperQuitText());
         }).dimensions(this.width / 2 - 75, this.height / 2 - 12, 150, 20).build());
+
         this.addDrawableChild(ButtonWidget.builder(autoReconnectText(), (button) -> {
             AutoReconnect.autoReconnect = !AutoReconnect.autoReconnect;
             button.setMessage(autoReconnectText());
