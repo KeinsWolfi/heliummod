@@ -3,6 +3,7 @@ package me.helium.GUI;
 import me.helium.mods.AutoReconnect;
 import me.helium.mods.AutoZZZZ;
 import me.helium.mods.CreeperQuit;
+import me.helium.mods.FullBright;
 import me.helium.util.gui.ChatFormat;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.screen.Screen;
@@ -36,22 +37,31 @@ public class HeliumScreen extends Screen {
         return AutoZZZZ.autoZZZZ ? Text.of("Auto ZZZZ: " + ChatFormat.GREEN + "On") : Text.of("Auto ZZZZ: " + ChatFormat.RED + "Off");
     }
 
+    Text fullbrightText() {
+        return FullBright.fullBright ? Text.of("Fullbright: " + ChatFormat.GREEN + "On") : Text.of("Fullbright: " + ChatFormat.RED + "Off");
+    }
+
     protected void init() {
 
         this.addDrawableChild(ButtonWidget.builder(creeperQuitText(), (button) -> {
             CreeperQuit.creeperQuit = !CreeperQuit.creeperQuit;
             button.setMessage(creeperQuitText());
-        }).dimensions(this.width / 2 - 75, this.height / 2 - 34, 150, 20).build());
+        }).dimensions(this.width / 2 - 150, this.height / 2 - 12, 150, 20).build());
 
         this.addDrawableChild(ButtonWidget.builder(autoReconnectText(), (button) -> {
             AutoReconnect.autoReconnect = !AutoReconnect.autoReconnect;
             button.setMessage(autoReconnectText());
-        }).dimensions(this.width / 2 - 75, this.height / 2 - 10, 150, 20).build());
+        }).dimensions(this.width / 2 - 150, this.height / 2 + 12, 150, 20).build());
 
         this.addDrawableChild(ButtonWidget.builder(autoZZZZText(), (button) -> {
             AutoZZZZ.autoZZZZ = !AutoZZZZ.autoZZZZ;
             button.setMessage(autoZZZZText());
-        }).dimensions(this.width / 2 - 75, this.height / 2 + 14, 150, 20).build());
+        }).dimensions(this.width / 2, this.height / 2 - 12, 150, 20).build());
+
+        this.addDrawableChild(ButtonWidget.builder(fullbrightText(), (button) -> {
+            FullBright.fullBright = !FullBright.fullBright;
+            button.setMessage(fullbrightText());
+        }).dimensions(this.width / 2, this.height / 2 + 12, 150, 20).build());
 
         //Back
         this.addDrawableChild(this.createButtonBack(Text.of("Back"), () -> this.parent, 4, 4, 100, 20));
