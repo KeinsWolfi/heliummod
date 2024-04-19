@@ -4,6 +4,7 @@ import me.helium.Helium9;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.network.packet.s2c.common.DisconnectS2CPacket;
 import net.minecraft.text.Text;
 
 import java.util.ArrayList;
@@ -40,7 +41,8 @@ public class CreeperQuit {
                 if(noAutoReconnect){
                     AutoReconnect.autoReconnect = false;
                 }
-                Helium9.mc.getNetworkHandler().onDisconnected(Text.of("Creeper exploding!"));
+
+                Helium9.mc.getNetworkHandler().onDisconnect(new DisconnectS2CPacket(Text.of("Creeper Exploding!!")));
             }
         }
     }
