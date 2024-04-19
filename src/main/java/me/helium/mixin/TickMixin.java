@@ -1,5 +1,6 @@
 package me.helium.mixin;
 
+import me.helium.mods.AutoZZZZ;
 import me.helium.mods.CreeperQuit;
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,5 +13,6 @@ public class TickMixin {
 	@Inject(at = @At("HEAD"), method = "tick")
 	private void init(CallbackInfo info) {
 		CreeperQuit.onTick();
+		AutoZZZZ.onTick();
 	}
 }

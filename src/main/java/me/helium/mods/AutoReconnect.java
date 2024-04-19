@@ -9,7 +9,7 @@ import net.minecraft.client.network.ServerInfo;
 
 public class AutoReconnect {
 
-    public static boolean autoReconnect = false;
+    public static boolean autoReconnect = true;
     public static boolean autoEnable = true;
 
     public static Pair<ServerAddress, ServerInfo> lastConnectedServer;

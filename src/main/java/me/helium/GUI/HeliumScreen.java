@@ -1,6 +1,7 @@
 package me.helium.GUI;
 
 import me.helium.mods.AutoReconnect;
+import me.helium.mods.AutoZZZZ;
 import me.helium.mods.CreeperQuit;
 import me.helium.util.gui.ChatFormat;
 import net.minecraft.client.font.TextRenderer;
@@ -31,17 +32,26 @@ public class HeliumScreen extends Screen {
         return AutoReconnect.autoReconnect ? Text.of("Auto Reconnect: " + ChatFormat.GREEN + "On") : Text.of("Auto Reconnect: " + ChatFormat.RED + "Off");
     }
 
+    Text autoZZZZText() {
+        return AutoZZZZ.autoZZZZ ? Text.of("Auto ZZZZ: " + ChatFormat.GREEN + "On") : Text.of("Auto ZZZZ: " + ChatFormat.RED + "Off");
+    }
+
     protected void init() {
 
         this.addDrawableChild(ButtonWidget.builder(creeperQuitText(), (button) -> {
             CreeperQuit.creeperQuit = !CreeperQuit.creeperQuit;
             button.setMessage(creeperQuitText());
-        }).dimensions(this.width / 2 - 75, this.height / 2 - 12, 150, 20).build());
+        }).dimensions(this.width / 2 - 75, this.height / 2 - 34, 150, 20).build());
 
         this.addDrawableChild(ButtonWidget.builder(autoReconnectText(), (button) -> {
             AutoReconnect.autoReconnect = !AutoReconnect.autoReconnect;
             button.setMessage(autoReconnectText());
-        }).dimensions(this.width / 2 - 75, this.height / 2 + 12, 150, 20).build());
+        }).dimensions(this.width / 2 - 75, this.height / 2 - 10, 150, 20).build());
+
+        this.addDrawableChild(ButtonWidget.builder(autoZZZZText(), (button) -> {
+            AutoZZZZ.autoZZZZ = !AutoZZZZ.autoZZZZ;
+            button.setMessage(autoZZZZText());
+        }).dimensions(this.width / 2 - 75, this.height / 2 + 14, 150, 20).build());
 
         //Back
         this.addDrawableChild(this.createButtonBack(Text.of("Back"), () -> this.parent, 4, 4, 100, 20));

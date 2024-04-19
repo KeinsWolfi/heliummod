@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CreeperQuit {
 
-    public static boolean creeperQuit = false;
+    public static boolean creeperQuit = true;
     public static boolean noAutoReconnect = true;
 
     public static boolean creeperNear = false;
