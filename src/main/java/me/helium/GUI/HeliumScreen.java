@@ -1,9 +1,6 @@
 package me.helium.GUI;
 
-import me.helium.mods.AutoReconnect;
-import me.helium.mods.AutoZZZZ;
-import me.helium.mods.CreeperQuit;
-import me.helium.mods.FullBright;
+import me.helium.mods.*;
 import me.helium.util.gui.ChatFormat;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.screen.Screen;
@@ -41,6 +38,10 @@ public class HeliumScreen extends Screen {
         return FullBright.fullBright ? Text.of("Fullbright: " + ChatFormat.GREEN + "On") : Text.of("Fullbright: " + ChatFormat.RED + "Off");
     }
 
+    Text villagerTraderText() {
+        return VillagerTrader.villagerTrader ? Text.of("Trader: " + ChatFormat.GREEN + "On") : Text.of("Trader: " + ChatFormat.RED + "Off");
+    }
+
     protected void init() {
 
         this.addDrawableChild(ButtonWidget.builder(creeperQuitText(), (button) -> {
@@ -62,6 +63,11 @@ public class HeliumScreen extends Screen {
             FullBright.fullBright = !FullBright.fullBright;
             button.setMessage(fullbrightText());
         }).dimensions(this.width / 2, this.height / 2 + 12, 150, 20).build());
+
+        this.addDrawableChild(ButtonWidget.builder(villagerTraderText(), (button) -> {
+            VillagerTrader.villagerTrader = !VillagerTrader.villagerTrader;
+            button.setMessage(villagerTraderText());
+        }).dimensions(this.width / 2 - 150, this.height / 2 + 36, 150, 20).build());
 
         //Back
         this.addDrawableChild(this.createButtonBack(Text.of("Back"), () -> this.parent, 4, 4, 100, 20));
