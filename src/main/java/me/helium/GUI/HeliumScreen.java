@@ -21,11 +21,11 @@ public class HeliumScreen extends Screen {
     }
 
     Text creeperQuitText() {
-            return CreeperQuit.creeperQuit ? Text.of("Creeper Quit: On") : Text.of("Creeper Quit: Off");
+            return CreeperQuit.creeperQuit ? Text.of("Creeper Quit: §aOn") : Text.of("Creeper Quit: §cOff");
     }
 
     Text autoReconnectText() {
-        return AutoReconnect.autoReconnect ? Text.of("Auto Reconnect: On") : Text.of("Auto Reconnect: Off");
+        return AutoReconnect.autoReconnect ? Text.of("Auto Reconnect: §aOn") : Text.of("Auto Reconnect: §cOff");
     }
 
     protected void init() {
@@ -33,14 +33,14 @@ public class HeliumScreen extends Screen {
         this.addDrawableChild(ButtonWidget.builder(creeperQuitText(), (button) -> {
             CreeperQuit.creeperQuit = !CreeperQuit.creeperQuit;
             button.setMessage(creeperQuitText());
-        }).dimensions(this.width / 2 - 50, this.height / 2 - 12, 100, 20).build());
+        }).dimensions(this.width / 2 - 75, this.height / 2 - 12, 150, 20).build());
         this.addDrawableChild(ButtonWidget.builder(autoReconnectText(), (button) -> {
             AutoReconnect.autoReconnect = !AutoReconnect.autoReconnect;
             button.setMessage(autoReconnectText());
-        }).dimensions(this.width / 2 - 50, this.height / 2 + 12, 100, 20).build());
+        }).dimensions(this.width / 2 - 75, this.height / 2 + 12, 150, 20).build());
 
         //Back
-        this.addDrawableChild(this.createButtonBack(Text.of("Back"), () -> this.parent, 4, this.height - 24, 100, 20));
+        this.addDrawableChild(this.createButtonBack(Text.of("Back"), () -> this.parent, 4, 4, 100, 20));
     }
 
     private ButtonWidget createButtonBack(Text text, Supplier<Screen> screenSupplier, int x, int y, int width, int height) {
