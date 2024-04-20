@@ -7,9 +7,11 @@ public class AutoZZZZ {
 
     private static MinecraftClient mc = Helium9.mc;
 
-    public static boolean autoZZZZ = false;
+    public static boolean autoZZZZ = true;
 
-    private static int timer = 100;
+    public static int rrrAmmount = 5;
+    public static int zzzAmmount = 9;
+    public static int timer = 100;
 
     public static void onTick() {
         if(mc.player == null || !autoZZZZ) return;
@@ -20,7 +22,8 @@ public class AutoZZZZ {
 
                 String message;
 
-                message = "rrrrrzzzzzzzzz";
+                message = "r".repeat(rrrAmmount);
+                message += "z".repeat(zzzAmmount);
                 message = randomizeCapitals(message);
 
                 mc.player.networkHandler.sendChatMessage(message);

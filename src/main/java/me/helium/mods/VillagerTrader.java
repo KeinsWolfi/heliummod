@@ -12,6 +12,8 @@ import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.SetTradeOffersS2CPacket;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.TradeOffer;
@@ -38,6 +40,9 @@ public class VillagerTrader {
                         for(Pair<Identifier, Integer> enchantment : enchantments){
                             String[] enchants = enchantment.left().toString().split(":");
                             Helium9.mc.player.sendMessage(isRareEnchant(enchants[1], enchantment.right()) ? Text.of(ChatFormat.GREEN + enchants[1] + " lvl: " + enchantment.right()) : Text.of(ChatFormat.RED + enchants[1] + " lvl: " + enchantment.right()));
+                            if(isRareEnchant(enchants[1], enchantment.right())){
+                                Helium9.mc.player.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.MASTER, 1, 0.7f);
+                            }
                         }
                     }
                 }

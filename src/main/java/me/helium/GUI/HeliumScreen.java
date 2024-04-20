@@ -3,10 +3,8 @@ package me.helium.GUI;
 import me.helium.Helium9;
 import me.helium.mods.*;
 import me.helium.util.gui.ChatFormat;
-import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.text.Text;
 
@@ -67,6 +65,9 @@ public class HeliumScreen extends Screen {
             AutoZZZZ.autoZZZZ = !AutoZZZZ.autoZZZZ;
             button.setMessage(autoZZZZText());
         }).dimensions(this.width / 2, this.height / 2 - 12, 150, 20).build());
+        this.addDrawableChild(ButtonWidget.builder(Text.of("⚙"), (button) -> {
+            Helium9.mc.setScreen(new AutoZZZZSettingScreen(this, this.options));
+        }).dimensions(this.width / 2 + 150, this.height / 2 - 12, 20, 20).build());
 
         this.addDrawableChild(ButtonWidget.builder(fullbrightText(), (button) -> {
             FullBright.fullBright = !FullBright.fullBright;
