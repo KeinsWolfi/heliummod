@@ -1,5 +1,6 @@
 package me.helium.GUI;
 
+import me.helium.Helium9;
 import me.helium.mods.*;
 import me.helium.util.gui.ChatFormat;
 import net.minecraft.client.font.TextRenderer;
@@ -49,10 +50,18 @@ public class HeliumScreen extends Screen {
             button.setMessage(creeperQuitText());
         }).dimensions(this.width / 2 - 150, this.height / 2 - 12, 150, 20).build());
 
+        this.addDrawableChild(ButtonWidget.builder(Text.of("⚙"), (button) -> {
+            Helium9.mc.setScreen(new CreeperQuitSettingScreen(this, this.options));
+        }).dimensions(this.width / 2 - 170, this.height / 2 - 12, 20, 20).build());
+
         this.addDrawableChild(ButtonWidget.builder(autoReconnectText(), (button) -> {
             AutoReconnect.autoReconnect = !AutoReconnect.autoReconnect;
             button.setMessage(autoReconnectText());
         }).dimensions(this.width / 2 - 150, this.height / 2 + 12, 150, 20).build());
+
+        this.addDrawableChild(ButtonWidget.builder(Text.of("⚙"), (button) -> {
+            Helium9.mc.setScreen(new AutoReconnectSettingScreen(this, this.options));
+        }).dimensions(this.width / 2 - 170, this.height / 2 + 12, 20, 20).build());
 
         this.addDrawableChild(ButtonWidget.builder(autoZZZZText(), (button) -> {
             AutoZZZZ.autoZZZZ = !AutoZZZZ.autoZZZZ;
